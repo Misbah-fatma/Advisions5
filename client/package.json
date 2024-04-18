@@ -15,7 +15,6 @@
     "@testing-library/user-event": "^14.5.2",
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
-    "coreui": "^0.4.2-alpha2",
     "formik": "^2.4.5",
     "i18next": "^23.10.0",
     "i18next-browser-languagedetector": "^7.2.0",
