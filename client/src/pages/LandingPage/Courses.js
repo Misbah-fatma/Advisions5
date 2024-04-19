@@ -140,98 +140,96 @@ const Products = () => {
    {filteredProducts.map((product) => {
 
           return (
-            <div id={product._id} key={product._id} className="col-md-4 col-sm-6 col-xs-8 col-12 mb-4"> 
+            <div id={product._id} key={product._id} className="col-md-4 col-sm-6 col-12 mb-4"> 
             <Grid
-            templateColumns={['.1fr', '.1fr', 'repeat(2, .1fr)', 'repeat(3, .1fr)']}
-            gap={6}
-            margin={'auto'}
-            py={8}          
-            maxW={"container.xl"}>
-            <GridItem  key={product._id} margin={'auto'}>
+              templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)', 'repeat(3, 1fr)']}
+              gap={6}
+              justifyContent={'center'}
+              margin={'auto'}
+              py={8}
+              maxW={"container.xl"}
+            >
+              <GridItem key={product._id} margin={'auto'}>
                 <VStack
-                className="course"
-                alignItems={"space-between"}
-                justifyContent={'space-between'}
-                flex={1}
-                flexGrow={1}
-                maxW={"350px"}
-                minH={["550px", "510px"]}
-                p={4}
-                borderRadius={"10px"}             
-                shadow={"lg"}
-                gap={4}
-              >
-                <Image src={product.courseThumbnail} h={"200px"} w={"350px"} marginX={'auto'} objectFit={"cover"} />
-                <Heading
-                  textAlign={"left"}
-                  fontFamily={"sans-serif"}
-                  noOfLines={1}
-                  size={["sm", "md"]}
-                  textTransform={"uppercase"}
+                  className="course"
+                  alignItems={"space-between"}
+                  justifyContent={'center'}
+                  flex={1}
+                  flexGrow={1}
+                  maxW={["95%", "85%", "350px"]}
+                  minH={["450px", "500px", "550px"]}
+                  p={4}
+                  borderRadius={"10px"}
+                  shadow={"lg"}
+                  gap={4}
                 >
-                  {product.courseName}
+                  <Image src={product.courseThumbnail} h={"200px"} w={"full"} marginX={'auto'} objectFit={"cover"} />
+                  <Heading
+                    size={['sm', 'md', 'lg']}
+                    fontFamily={"sans-serif"}
+                    noOfLines={1}
+                    textAlign={"left"}
+                    textTransform={"uppercase"}
+                  >
+                    {product.courseName}
                   </Heading>
                   <Text noOfLines={5}>{product.courseDescription}</Text>
-      <HStack>
-        <Text fontWeight={"bold"} textTransform={"uppercase"}>
-          Creator -
-        </Text>
-        <Text fontFamily={"body"} textTransform={"uppercase"}>
-          {/* {product.courseLink} */}
-          Mr. Santosh Singh
-        </Text>
-      </HStack>
-
-      <HStack justifyContent={"space-between"}>
-        <HStack>
-          <LuView size={20} />
-          <Heading
-            size={"sm"}
-            fontWeight={"normal"}
-            textTransform={"uppercase"}
-          >
-            {product.coursePrice} $
-          </Heading>
-          </HStack>
-          <Link to = "/courseInfo1">
-          <HStack>
-          <BsListUl size={20} />
-          <Heading
-            size={"sm"}
-            fontWeight={"normal"}
-            textTransform={"uppercase"}
-          >
-            {} Lectures
-          </Heading>
-        </HStack>
-        </Link>
-      </HStack>
-    
-
-      <Stack
-        direction={["column", "row"]}
-        alignItems={"center"}
-        justifyContent={"space-between"}
-      >
-        <Link to={`/course`}>
-          <Button colorScheme="blue">
-            Watch Now <BsCollectionPlayFill style={{ marginLeft: "10px" }} />
-          </Button>
-        </Link>
-        <Button
-          isLoading={loading}
-          variant={"outline"}
-          colorScheme="blue"
-          onClick={() => addProduct(product)}
-        >
-          Add to playlist
-          <AiOutlineVideoCameraAdd size={22} style={{ marginLeft: "10px" }} />
-        </Button>
-      </Stack>
-    </VStack>      
-    </GridItem>
-        </Grid>
-        </div>       
+                  <HStack>
+                    <Text fontWeight={"bold"} textTransform={"uppercase"}>
+                      Creator -
+                    </Text>
+                    <Text fontFamily={"body"} textTransform={"uppercase"}>
+                      Mr. Santosh Singh
+                    </Text>
+                  </HStack>
+                  <HStack justifyContent={"space-between"}>
+                    <HStack>
+                      <LuView size={20} />
+                      <Heading
+                        size={"sm"}
+                        fontWeight={"normal"}
+                        textTransform={"uppercase"}
+                      >
+                        {product.coursePrice} $
+                      </Heading>
+                    </HStack>
+                    <Link to="/courseInfo1">
+                      <HStack>
+                        <BsListUl size={20} />
+                        <Heading
+                          size={"sm"}
+                          fontWeight={"normal"}
+                          textTransform={"uppercase"}
+                        >
+                          {} Lectures
+                        </Heading>
+                      </HStack>
+                    </Link>
+                  </HStack>
+                  <Stack
+                    direction={["column", "row"]}
+                    alignItems={"center"}
+                    justifyContent={"space-between"}
+                  >
+                    <Link to={`/course`}>
+                      <Button colorScheme="blue">
+                        Watch Now <BsCollectionPlayFill style={{ marginLeft: "10px" }} />
+                      </Button>
+                    </Link>
+                    <Button
+                      isLoading={loading}
+                      variant={"outline"}
+                      colorScheme="blue"
+                      onClick={() => addProduct(product)}
+                    >
+                      Add to playlist
+                      <AiOutlineVideoCameraAdd size={22} style={{ marginLeft: "10px" }} />
+                    </Button>
+                  </Stack>
+                </VStack>      
+              </GridItem>
+            </Grid>
+          </div>        
           );
         })}
       </>

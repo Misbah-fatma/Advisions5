@@ -45,7 +45,8 @@ const Navbar = () => {
       </div>
       </div>
       </Link>
-      <div className="ml-auto px-4">
+
+      <div  className="hide1 ml-auto px-4">
       <Link to="/cart" >
               <Button color={"white"}   variant={"link"}> 
               <MdShoppingCart size={24} style={{ cursor: 'pointer' }} onClick={() => console.log('Cart Clicked!')} />
